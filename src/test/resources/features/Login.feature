@@ -8,11 +8,6 @@
       And user provides username "<username>" and password "<password>"
       Then user logs in
 
-
-
-
-
-
       Examples:
         | username | password |
         | team10   | Team10*  |

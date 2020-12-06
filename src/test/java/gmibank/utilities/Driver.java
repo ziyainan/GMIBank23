@@ -61,6 +61,9 @@ public class Driver {
         }
     }
 
+    public static void waitAndClick(WebElement element) {
+        waitAndClick(element,5);
+    }
     public static void waitAndClick(WebElement element, int timeout) {
         for (int i = 0; i < timeout; i++) {
             try {
@@ -72,6 +75,9 @@ public class Driver {
         }
     }
 
+    public static void waitAndSendText(WebElement element,String text) {
+        waitAndSendText(element,text,5);
+    }
     public static void waitAndSendText(WebElement element,String text, int timeout) {
         for (int i = 0; i < timeout; i++) {
             try {
@@ -82,7 +88,21 @@ public class Driver {
             }
         }
     }
+        public static void waitAndClearAndUpdate(WebElement element,String text, int timeout) {
+            for (int i = 0; i < timeout; i++) {
+                try {
+                    element.clear();
+                    element.sendKeys(text);
+                    return;
+                } catch (WebDriverException e) {
+                    wait(1);
+                }
+            }
+    }
 
+    public static String waitAndGetText(WebElement element) {
+        return waitAndGetText(element,5);
+    }
     public static String waitAndGetText(WebElement element, int timeout) {
         String text="";
         for (int i = 0; i < timeout; i++) {

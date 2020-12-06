@@ -14,11 +14,17 @@ import org.junit.runner.RunWith;
         },
         features = "src/test/resources/features",
         glue = "gmibank/step_defs",
-        tags = "@login",
+        tags = "@SearchbySSN",
         dryRun = false
+
+
 
 )
 
-public class CukesRunner {
+
+
+public class TurkerRunner {
+
+
 
 }
