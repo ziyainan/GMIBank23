@@ -88,6 +88,17 @@ public class Driver {
             }
         }
     }
+        public static void waitAndClearAndUpdate(WebElement element,String text, int timeout) {
+            for (int i = 0; i < timeout; i++) {
+                try {
+                    element.clear();
+                    element.sendKeys(text);
+                    return;
+                } catch (WebDriverException e) {
+                    wait(1);
+                }
+            }
+    }
 
     public static String waitAndGetText(WebElement element) {
         return waitAndGetText(element,5);
