@@ -29,6 +29,12 @@ public class DateUtil {
         String today = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(new Date());
         return today;
     }
+    
+    // dd-MM-yy-HH-mm   --> 02-17-19-03-45 (24 Hour format)
+    public static String todaysDate5(){
+        String today = new SimpleDateFormat("dd-MM-yy-HH-mm").format(new Date());
+        return today;
+    }
 }
 
 
