@@ -57,12 +57,7 @@ public class US0012_ManageCustomerPages {
     @FindBy (xpath = "//tbody/tr[1]/td[10]/div[1]/a[3]")
     public WebElement deleteButton;
 
-    @FindBy (xpath = "//span[contains(text(),'Confirm delete operation')]")
+    @FindBy (xpath = "//span[text()='Confirm delete operation']")
     public WebElement deletionMessage;
-
-
-
-
-
 
 }

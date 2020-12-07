@@ -54,13 +54,4 @@ public class US006_UserInfoPage {
     @FindBy (xpath = "//input[@id='email']")
     public WebElement emailTextbox;
 
-    @FindBy (xpath = "//select[@id='langKey']")
-    public WebElement l;
-
-
-
-
-
-
-
 }
