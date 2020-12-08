@@ -24,6 +24,7 @@ public class Driver {
 
     //create a driver instance
     static WebDriver driver;
+    final static int DEFAULT_TIMEOUT = 5;
     //to initialize the driver we create a static method
     public static WebDriver getDriver() {
         //create the driver if and only if it is null
@@ -62,7 +63,7 @@ public class Driver {
     }
 
     public static void waitAndClick(WebElement element) {
-        waitAndClick(element,5);
+        waitAndClick(element,DEFAULT_TIMEOUT);
     }
     public static void waitAndClick(WebElement element, int timeout) {
         for (int i = 0; i < timeout; i++) {
@@ -76,7 +77,7 @@ public class Driver {
     }
 
     public static void waitAndSendText(WebElement element,String text) {
-        waitAndSendText(element,text,5);
+        waitAndSendText(element,text,DEFAULT_TIMEOUT);
     }
     public static void waitAndSendText(WebElement element,String text, int timeout) {
         for (int i = 0; i < timeout; i++) {
@@ -88,20 +89,23 @@ public class Driver {
             }
         }
     }
-        public static void waitAndClearAndUpdate(WebElement element,String text, int timeout) {
-            for (int i = 0; i < timeout; i++) {
-                try {
-                    element.clear();
-                    element.sendKeys(text);
-                    return;
-                } catch (WebDriverException e) {
-                    wait(1);
-                }
+    public static void waitAndClearAndUpdate(WebElement element,String text) {
+    	waitAndClearAndUpdate(element, text, DEFAULT_TIMEOUT);
+    }
+    public static void waitAndClearAndUpdate(WebElement element,String text, int timeout) {
+        for (int i = 0; i < timeout; i++) {
+            try {
+                element.clear();
+                element.sendKeys(text);
+                return;
+            } catch (WebDriverException e) {
+                wait(1);
             }
+        }
     }
 
     public static String waitAndGetText(WebElement element) {
-        return waitAndGetText(element,5);
+        return waitAndGetText(element,DEFAULT_TIMEOUT);
     }
     public static String waitAndGetText(WebElement element, int timeout) {
         String text="";
