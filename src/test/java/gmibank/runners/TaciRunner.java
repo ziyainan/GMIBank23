@@ -1,8 +1,5 @@
 package gmibank.runners;
 
-
-
-
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
 import org.junit.runner.RunWith;
@@ -16,12 +13,11 @@ import org.junit.runner.RunWith;
         },
         features = "src/test/resources/features",
         glue = "gmibank/step_defs",
-        tags = "@test",
+        tags = "@US008",
         dryRun = false
 
+
+
 )
-
-
-public class ZiyaRunner {
-
+public class TaciRunner {
 }
