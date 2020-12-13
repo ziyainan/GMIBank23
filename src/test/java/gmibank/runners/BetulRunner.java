@@ -12,7 +12,7 @@ import org.junit.runner.RunWith;
                 "junit:target/xml-report/cucumber.xml"},
         features = "src/test/resources/features",
         glue = "gmibank/step_defs",
-        tags = "@US0012_TC05",
+        tags = "@US017_AdminManageUser",
         dryRun = false
 )
 public class BetulRunner {
