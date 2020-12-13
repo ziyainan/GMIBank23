@@ -16,16 +16,10 @@ import org.junit.runner.RunWith;
         },
         features = "src/test/resources/features",
         glue = "gmibank/step_defs",
-        tags = "@login",
+        tags = "@test",
         dryRun = false
 
-
-
-
-
 )
-
-
 
 
 public class ZiyaRunner {
