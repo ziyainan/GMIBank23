@@ -3,15 +3,16 @@ package gmibank.pages;
 import gmibank.utilities.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
-public class US003_US0007_US0015_StoriesPages {
+public class US003_US0007_US0015_US0016_StoriesPages {
 
-    public US003_US0007_US0015_StoriesPages(){
+    public US003_US0007_US0015_US0016_StoriesPages(){
         PageFactory.initElements(Driver.getDriver(),this);
     }
 
@@ -66,31 +67,51 @@ public class US003_US0007_US0015_StoriesPages {
    @FindBy(id="entity-menu")
    public WebElement myoperations;
 
-   @FindBy(xpath ="//*[@id='entity-menu']/div/a[2]")
+   @FindBy(xpath ="//a[@href='/customer/tp-customer-accounts/41422']")
    public WebElement manaccount;
 
-//    @FindBy(xpath="//table/tbody//tr//td[4]")
-//    public WebElement accouts;
-//
-//    @FindBy(xpath="//table/tbody//tr//td[3]")
-//    public WebElement balances;
+    @FindBy(css ="button.btn")
+    public static List<WebElement> transactionBttn;
 
-//    public List<WebElement> accounts() {
-//        List<WebElement> list = Driver.getDriver().findElements(By.xpath("//table/tbody//tr//td[3]"));
-//        return list;
-//    }
-    @FindBy(how= How.XPATH,using = "//table/tbody//tr//td[4]")
-    public static List<WebElement> accountToList;
+    @FindBy(how= How.XPATH,using = "//table/tbody//tr//td[2]")
+    public static List<WebElement> accountType;
 
     @FindBy(how= How.XPATH,using = "//table/tbody//tr//td[3]")
-    public static List<WebElement> balanceToList;
+    public static List<WebElement> balance;
+
+    @FindBy(how= How.XPATH,using = "//table/thead/tr/th[text()='Amount']")
+    public WebElement transAmount;
+
+    @FindBy(id="fromAccountId")
+    public WebElement accountid;
+
+    @FindBy(xpath="//a[contains(text(),'Transfer Money')]")
+    public WebElement tranferMoneyBttn;
+
+    @FindBy(name="toAccountId")
+    public WebElement toPart;
+
+    @FindBy(name="balance")
+    public WebElement balanceplace;
+
+    @FindBy(name="balancecent")
+    public WebElement cent;
+
+    @FindBy(id="description")
+    public WebElement description;
+
+    @FindBy(xpath="//div[@class='invalid-feedback']")
+    public WebElement firstinvalidate;
+
+    @FindBy(xpath="//div[contains(text(),'This field is required.')]")
+    public WebElement secondinvalidate;
 
 
+    @FindBy(id="make-transfer")
+    public WebElement maketransfer;
 
-
-
-
-
+    @FindBy(xpath="//div[@class='Toastify__toast-body']")
+    public WebElement success;
 
 
 }
