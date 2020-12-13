@@ -1,6 +1,5 @@
 package gmibank.runners;
 
-
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
 import org.junit.runner.RunWith;
@@ -14,16 +13,11 @@ import org.junit.runner.RunWith;
         },
         features = "src/test/resources/features",
         glue = "gmibank/step_defs",
-        tags = "@SearchbySSN",
+        tags = "@US008",
         dryRun = false
 
 
+
 )
-
-
-
-public class TurkerRunner {
-
-
-
+public class TaciRunner {
 }

@@ -1,20 +1,24 @@
 package gmibank.step_defs;
 
+import com.github.javafaker.Faker;
 import cucumber.api.java.en.And;
+import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import gmibank.pages.US011_DateOnCustomerCreationPage;
+import gmibank.utilities.BrowserUtils;
 import gmibank.utilities.ConfigurationReader;
 import gmibank.utilities.DateUtil;
 import gmibank.utilities.Driver;
 import org.junit.Assert;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.Select;
 
 public class US011_DateOnCustomerCreation {
 	
+	static Faker fake = new Faker();
 	US011_DateOnCustomerCreationPage page = new US011_DateOnCustomerCreationPage();
 	
-	@When("I go to GMI Bank")
+	@Given("I visit GMI Bank")
 	public void visitGMIBank() {
 		String url = ConfigurationReader.getProperty("gmibank_login_url");
 		Driver.getDriver().get(url);
@@ -24,52 +28,100 @@ public class US011_DateOnCustomerCreation {
 				Driver.getDriver().getCurrentUrl());
 	}
 	
-	@And("Sign in as valid admin")
-	public void signInAsValidAdmin() {
+	@Given("I sign in as valid employee")
+	public void signInAsValidEmployee() {
 		Driver.waitAndClick(page.accountIcon);
 		Driver.waitAndClick(page.signInLink);
-		Driver.waitAndSendText(page.username,ConfigurationReader.getProperty("admin_username"));
-		Driver.waitAndSendText(page.password,ConfigurationReader.getProperty("admin_password"));
+		Driver.waitAndSendText(page.username, ConfigurationReader.getProperty("employee_username"));
+		Driver.waitAndSendText(page.password, ConfigurationReader.getProperty("employee_password"));
 		Driver.waitAndClick(page.signInButton);
 		Assert.assertNotNull("Cannot login with given credentials",
-				page.administrationMenu);
+				page.myOperationsMenu);
 	}
 	
-	@Then("Select Administration Menu -> User Management -> Create New User")
+	@When("I select My Operations Menu -> Management Customers -> Create New Customer")
 	public void createNewUser() {
-		Driver.waitAndClick(page.administrationMenu);
-		Driver.waitAndClick(page.userManagementMenu);
-		Driver.waitAndClick(page.createNewUserButton);
-		Assert.assertEquals("",
-				"https://gmibank.com/admin/user-management/new",
+		Driver.waitAndClick(page.myOperationsMenu);
+		Driver.waitAndClick(page.manageCustomersMenu);
+		Driver.waitAndClick(page.createNewCustomerButton);
+		Assert.assertEquals("Cannot create a new user",
+				"https://gmibank.com/tp-customer/new",
 				Driver.getDriver().getCurrentUrl());
 	}
 	
-	@Then("Fill out valid information and Save")
-	public void fill_out_valid_information_and_Save() {
+	@And("Fill out necessary information")
+	public void fillOut() throws InterruptedException {
 		String firstUrl = Driver.getDriver().getCurrentUrl();
-		Driver.waitAndSendText(page.loginField, DateUtil.todaysDate5());
-		Driver.waitAndSendText(page.firstNameField,"US011");
-		Driver.waitAndSendText(page.lastNameField,"US011");
-		Driver.waitAndSendText(page.emailField,DateUtil.todaysDate5()+"@US011.com");
-		Driver.selectAnItemFromDropdown(page.authoritiesField,"ROLE_USER");
-		Driver.waitAndClick(page.submitButton);
+		//Driver.waitAndSendText(page.loginField, DateUtil.todaysDate5());
+		Driver.waitAndSendText(page.firstNameField, fake.name().firstName());
+		Driver.waitAndSendText(page.lastNameField, fake.name().lastName());
+		Driver.waitAndSendText(page.middleInitialField, String.valueOf((char) ('A' + fake.number().numberBetween(0, 26))));
+		Driver.waitAndSendText(page.emailField, fake.internet().safeEmailAddress());
+		Driver.waitAndSendText(page.mobilePhoneNumberField,
+				fake.number().digits(3) + "-" + fake.number().digits(3) + "-" + fake.number().digits(4));
+		Driver.waitAndSendText(page.phoneNumberField,
+				fake.number().digits(3) + "-" + fake.number().digits(3) + "-" + fake.number().digits(4));
+		Driver.waitAndSendText(page.zipCodeField, fake.address().zipCode());
+		Driver.waitAndSendText(page.addressField, fake.address().fullAddress());
+		Driver.waitAndSendText(page.cityField, fake.address().city());
+		Driver.waitAndSendText(page.ssnField, fake.idNumber().ssnValid());
+	}
+	
+	@Then("Created date should be in the future")
+	public void createdDateCheckerFuture() throws InterruptedException {
+		String futureDate = String.valueOf(Long.parseLong(DateUtil.todaysDate7()) + 10000);
+		Driver.waitAndSendText(page.createDateField,futureDate);
+	}
+	
+	@Then("Created date should be in the past")
+	public void createdDateCheckerPast() throws InterruptedException {
+		String pastDate = String.valueOf(Long.parseLong(DateUtil.todaysDate7()) - 10000);
+		Driver.waitAndSendText(page.createDateField,pastDate);
+	}
+	
+	@Then("Created date should be as month, day, year, hour and minute")
+	public void createdDateFormatChecker() throws InterruptedException {
+		Driver.waitAndSendText(page.createDateField, DateUtil.todaysDate7());
+	}
+	
+	@Then("User can choose a user from the registration and leave it as be blank")
+	public void chooseUser() {
+		//Leave blank
+		//Select user = new Select(page.userField);
+		//BrowserUtils.selectRandomTextFromDropdown(user);
+		
+	}
+	
+	@Then("There user can choose an account created on manage accounts")
+	public void manageAccounts() {
+		Select account = new Select(page.accountDropdown);
+		BrowserUtils.selectRandomTextFromDropdown(account);
+	}
+	
+	@Then("User can select Zelle Enrolled optionally")
+	public void zelleCheck() {
+		Driver.waitAndClick(page.zelleEnrolledField);
+	}
+	
+	@Then("save it")
+	public void saveIt() throws InterruptedException {
+		Thread.sleep(1000);
+		String firstUrl = Driver.getDriver().getCurrentUrl();
+		Driver.waitAndClick(page.saveButton);
+		Thread.sleep(1500);
 		Assert.assertNotEquals("User unable to be saved",
 				firstUrl,
 				Driver.getDriver().getCurrentUrl());
 	}
 	
-	@Then("Created date should not be in the past")
-	public void created_date_should_not_be_in_the_past() throws InterruptedException {
-		Thread.sleep(1000);
-		Driver.waitAndClick(page.dateSort);
-		Thread.sleep(1000);
-		String date = Driver.waitAndGetText(page.lastCreatedDate);
-		String login = Driver.waitAndGetText(page.lastCreatedLogin);
-		int dateDifference = Integer.parseInt(date.replaceAll("[ :/-]","")) -
-				Integer.parseInt(login.replaceAll("[ :/-]",""));
-		Assert.assertTrue(date+" is different than "+login,
-				dateDifference < 2);
+	@Then("it should not save it")
+	public void itShouldNotSaveIt() throws InterruptedException {
+		Thread.sleep(2000);
+		String firstUrl = Driver.getDriver().getCurrentUrl();
+		Driver.waitAndClick(page.saveButton);
+		Thread.sleep(2000);
+		Assert.assertEquals("User able to be saved",
+				firstUrl,
+				Driver.getDriver().getCurrentUrl());
 	}
-	
 }
