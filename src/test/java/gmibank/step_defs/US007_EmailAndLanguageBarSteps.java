@@ -5,7 +5,7 @@ package gmibank.step_defs;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.When;
 import cucumber.api.java.en.Then;
-import gmibank.pages.US003_US0007_US0015_StoriesPages;
+import gmibank.pages.US003_US0007_US0015_US0016_StoriesPages;
 import gmibank.utilities.ConfigurationReader;
 import gmibank.utilities.Driver;
 import org.junit.Assert;
@@ -17,7 +17,7 @@ import java.util.List;
 
 public class US007_EmailAndLanguageBarSteps {
 
-        US003_US0007_US0015_StoriesPages US003_email = new US003_US0007_US0015_StoriesPages();
+        US003_US0007_US0015_US0016_StoriesPages US003_email = new US003_US0007_US0015_US0016_StoriesPages();
 
         /*
                 @Given("user go to the login page")
