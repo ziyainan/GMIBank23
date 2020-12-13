@@ -8,6 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 public class US001_AllowAnyUserToRegisterPage {
 
     public US001_AllowAnyUserToRegisterPage() {
+
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
