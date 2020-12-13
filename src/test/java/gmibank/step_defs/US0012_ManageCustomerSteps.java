@@ -52,14 +52,8 @@ public class US0012_ManageCustomerSteps {
     @Then("user clicks on Delete button and verifies deleting message has poped up")
     public void user_clicks_on_Delete_button_and_verifies_deleting_message_has_poped_up() {
         Driver.waitAndClick(us0012_manageCustomerPages.deleteButton,2);
-//        BrowserUtils.verifyElementDisplayed(us0012_manageCustomerPages.deletionMessage);
-        //Assert.assertTrue(us0012_manageCustomerPages.deletionMessage.getText().contains("Are you sure you want to delete Customer 5427?"));
-
-//        String alert = Driver.getDriver().switchTo().alert().getText();
-//        System.out.println(alert);
-
         System.out.println(us0012_manageCustomerPages.deletionMessage.getText());
-        //Assert.assertTrue(us0012_manageCustomerPages.deletionMessage.isDisplayed());
+
 
     }
 }
