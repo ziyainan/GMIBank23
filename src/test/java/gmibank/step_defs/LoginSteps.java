@@ -1,11 +1,9 @@
 package gmibank.step_defs;
 
+import cucumber.api.java.en.*;
 import gmibank.pages.GmiPage;
 import gmibank.utilities.Driver;
-import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
+
 
 public class LoginSteps {
 
