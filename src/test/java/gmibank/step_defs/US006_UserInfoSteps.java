@@ -20,8 +20,8 @@ public class US006_UserInfoSteps {
     public void user_signs_in_as_an_employee_and(String username, String password) {
         Driver.waitAndClick(us006_userInfoPage.accountMenu,2);
         Driver.waitAndClick(us006_userInfoPage.signInLink,2);
-        Driver.waitAndSendText(us006_userInfoPage.usernameTextbox,"lindapine",2);
-        Driver.waitAndSendText(us006_userInfoPage.passwordTextbox,"12345Linda",2);
+        Driver.waitAndSendText(us006_userInfoPage.usernameTextbox,ConfigurationReader.getProperty("employee_username"),2);
+        Driver.waitAndSendText(us006_userInfoPage.passwordTextbox,ConfigurationReader.getProperty("employee_password"),2);
         Driver.waitAndClick(us006_userInfoPage.signInButton,2);
 
     }
