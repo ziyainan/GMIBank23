@@ -10,4 +10,4 @@
 
       Examples:
         | username | password |
-        | team10   | Team10*  |
+        | admin2   | TechAdmin2  |
