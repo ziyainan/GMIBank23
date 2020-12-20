@@ -7,14 +7,16 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        plugin = {"html:target/default-cucumber-reports",
-                "json:target/json-reports/cucumber.json",
-                "junit:target/xml-report/cucumber.xml"},
-        features = "src/test/resources/features/us010_tc.feature",
-        glue = "gmibank/stepdefinitions",
-        tags = "@us001tc010",
-        dryRun = false
-)
+        plugin = {
+                "pretty",
+                "html:target/default-cucumber-reports",
+                "json:target/cucumber.json",
+                "junit:target/xml-report/cucumber.xml"
+        },
+        features = "src/test/resources/features/US023_Read_All_Aplicants.feature",
+        glue = "gmibank/step_defs",
+        tags = "@US23",
+        dryRun = false)
 public class Kadir_Runner {
 
 }
