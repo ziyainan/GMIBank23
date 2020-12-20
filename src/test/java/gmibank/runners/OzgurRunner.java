@@ -13,7 +13,7 @@ import org.junit.runner.RunWith;
         },
         features = "/Users/ozgurcil/IdeaProjects/GMIBank23/src/test/resources/features",
         glue = "gmibank/step_defs",
-        tags = "@Registration",
+        tags = "@CustomerDataTest",
         dryRun = false
 
 )
