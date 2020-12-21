@@ -16,8 +16,8 @@ import org.junit.runner.RunWith;
             features = "src/test/resources/features",
             glue = "gmibank/step_defs",
           //US003-->@Password,US007-->@Email, US0015-->@Account
-            tags = "@Transfer",
-            dryRun = false
+            tags = "@Country",
+            dryRun = true
 
     )
 
