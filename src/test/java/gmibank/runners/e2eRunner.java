@@ -1,5 +1,6 @@
 package gmibank.runners;
 
+
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
 import org.junit.runner.RunWith;
@@ -11,15 +12,13 @@ import org.junit.runner.RunWith;
                 "json:target/cucumber.json",
                 "junit:target/xml-report/cucumber.xml"
         },
-        features = "/Users/ozgurcil/IdeaProjects/GMIBank23/src/test/resources/features",
+        features = "src/test/resources/features",
         glue = "gmibank/step_defs",
-<<<<<<< HEAD
-        tags = "@Registration",
-=======
-        tags = "@CustomerDataTest",
->>>>>>> master
+        tags = "@e2e",
         dryRun = false
 
 )
-public class OzgurRunner {
+
+public class e2eRunner {
+
 }

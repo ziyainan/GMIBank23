@@ -105,7 +105,15 @@ public class Driver {
     }
 
     public static String waitAndGetText(WebElement element) {
+<<<<<<< HEAD
         return waitAndGetText(element,DEFAULT_TIMEOUT);
+=======
+
+        return waitAndGetText(element,DEFAULT_TIMEOUT);
+
+
+
+>>>>>>> master
     }
     public static String waitAndGetText(WebElement element, int timeout) {
         String text="";
