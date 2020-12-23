@@ -37,8 +37,8 @@ public class WriteToTxt {
                 writer.append(customers[i].getFirstName()+" , "+customers[i].getLastName()+"\n");
                 if(customers[i].getUser() != null)
                     writer.append(customers[i].getUser().getFirstName());
-                if(customers[0].getCountry() != null)
-                    writer.append(customers[i].getCountry().getStates());
+                if(customers[0].getCountry() != null);
+             //       writer.append(customers[i].getCountry().getStates());
 
             }
             writer.close();
