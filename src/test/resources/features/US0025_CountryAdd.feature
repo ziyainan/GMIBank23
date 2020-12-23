@@ -1,10 +1,20 @@
 @Country
-  Feature: check country and add
 
-    Scenario: check country
-      Given I perform GET operation for end_point "https://www.gmibank.com/api/tp-countries"
-      Then I should see all the countries
+  Feature:
+    Background: create a new country
+    Given user provide the API endpoint response "https://www.gmibank.com/api/tp-countries"
 
-    Scenario: Add country
-      Given I perform POST operation for end_point "https://www.gmibank.com/api/tp-countries"
-      Then I should get success added message
+      Scenario Outline:
+        Given user create a new country by endpoint "https://www.gmibank.com/api/tp-countries"  "<countryname>"
+        Examples:
+        |countryname|
+        |Tajikistan |
+
+
+        Scenario:
+        And user deserialize to java
+        And user add all data corresponding file
+        Then user validate the country successfully created
+
+
+

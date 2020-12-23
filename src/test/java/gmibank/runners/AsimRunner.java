@@ -17,7 +17,7 @@ import org.junit.runner.RunWith;
             glue = "gmibank/step_defs",
           //US003-->@Password,US007-->@Email, US0015-->@Account
             tags = "@Country",
-            dryRun = true
+            dryRun = false
 
     )
 
