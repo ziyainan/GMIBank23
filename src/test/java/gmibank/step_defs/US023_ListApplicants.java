@@ -1,17 +1,18 @@
 package gmibank.step_defs;
 
-import com.fasterxml.jackson.databind.util.JSONPObject;
 import com.google.gson.JsonArray;
 import com.itextpdf.text.*;
 import com.itextpdf.text.log.SysoCounter;
 import com.itextpdf.text.pdf.PdfWriter;
-import cucumber.api.java.en.*;
+
 import gmibank.pojos;
 import gmibank.utilities.ConfigurationReader;
 import gmibank.utilities.ReadTxt;
 import gmibank.utilities.WriteToTxt;
 import groovyjarjarpicocli.CommandLine;
 import io.cucumber.datatable.dependency.com.fasterxml.jackson.databind.ObjectMapper;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.http.Method;
