@@ -15,7 +15,7 @@ import org.junit.runner.RunWith;
         },
         features = "src/test/resources/features/US023_Read_All_Aplicants.feature",
         glue = "gmibank/step_defs",
-        tags = "@US23",
+        tags = "@AllCustomerData",
         dryRun = false)
 public class Kadir_Runner {
 
