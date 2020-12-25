@@ -1,9 +1,12 @@
 package gmibank.pojos;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties (ignoreUnknown = true)
 public class Country {
     private int id;
     private String name;
-    private String states;
+    private States states;
 
     public int getId() {
         return id;
@@ -21,11 +24,11 @@ public class Country {
         this.name = name;
     }
 
-    public String getStates() {
+    public States getStates() {
         return states;
     }
 
-    public void setStates(String states) {
+    public void setStates(States states) {
         this.states = states;
     }
 }

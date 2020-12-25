@@ -1,5 +1,6 @@
 package gmibank.step_defs;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import cucumber.api.java.en.*;
 import gmibank.utilities.ConfigurationReader;
 import io.restassured.http.ContentType;
