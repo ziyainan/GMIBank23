@@ -11,7 +11,7 @@ import org.junit.Assert;
 
 public class US001_AllowAnyUserToRegisterStep {
 
-     static Faker faker = new Faker();
+      Faker faker = new Faker();
 
     US001_AllowAnyUserToRegisterPage allowAnyUserToRegisterPage = new US001_AllowAnyUserToRegisterPage();
 
