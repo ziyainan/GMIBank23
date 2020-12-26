@@ -1,4 +1,7 @@
 package gmibank.runners;
+
+import cucumber.api.CucumberOptions;
+import cucumber.api.junit.Cucumber;
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
 import org.junit.runner.RunWith;
@@ -12,9 +15,10 @@ import org.junit.runner.RunWith;
                 "junit:target/xml-report/cucumber.xml"},
         features = "src/test/resources/features",
         glue = "gmibank/step_defs",
-        tags = "@US017_AdminManageUser",
+        tags = "@LoginValid",
         dryRun = false
 )
-public class BetulRunner {
+
+public class ElciRunner {
 
 }

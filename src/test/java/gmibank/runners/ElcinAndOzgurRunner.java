@@ -13,9 +13,10 @@ import org.junit.runner.RunWith;
         },
         features = "/Users/ozgurcil/IdeaProjects/GMIBank23/src/test/resources/features",
         glue = "gmibank/step_defs",
-        tags = "@CustomerDataTest",
-        dryRun = false
+        tags = "@US018",
+        dryRun = true
 
 )
-public class OzgurRunner {
+
+public class ElcinAndOzgurRunner {
 }

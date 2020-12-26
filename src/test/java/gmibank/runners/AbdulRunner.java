@@ -14,7 +14,7 @@ import org.junit.runner.RunWith;
 		},
 		features = "src/test/resources/features",
 		glue = "gmibank/step_defs",
-		tags = "@US011",
+		tags = "@US022",
 		dryRun = false
 )
 public class AbdulRunner {

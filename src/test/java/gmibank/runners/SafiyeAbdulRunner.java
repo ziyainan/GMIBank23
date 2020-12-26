@@ -6,16 +6,16 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        plugin = {
+        plugin = {"pretty", // this is new!
                 "html:target/default-cucumber-reports",
                 "json:target/cucumber.json",
                 "junit:target/xml-report/cucumber.xml"
         },
-        features = "/Users/ozgurcil/IdeaProjects/GMIBank23/src/test/resources/features",
+        features = "src/test/resources/features",
         glue = "gmibank/step_defs",
-        tags = "@CustomerDataTest",
+        tags = "@US019",
         dryRun = false
-
 )
-public class OzgurRunner {
+public class SafiyeAbdulRunner {
+
 }

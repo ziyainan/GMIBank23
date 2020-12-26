@@ -6,11 +6,11 @@ import cucumber.api.java.en.When;
 import gmibank.utilities.ConfigurationReader;
 import gmibank.utilities.Driver;
 import org.testng.Assert;
-import gmibank.pages.US003_US0007_US0015_StoriesPages;
+import gmibank.pages.US003_US0007_US0015_US0016_StoriesPages;
 
 public class US003_PasswordStrengthSteps {
 
-    US003_US0007_US0015_StoriesPages US003_Password=new US003_US0007_US0015_StoriesPages();
+    US003_US0007_US0015_US0016_StoriesPages US003_Password=new US003_US0007_US0015_US0016_StoriesPages();
 
     @Given("user go to registration")
     public void user_go_to_registration() {
