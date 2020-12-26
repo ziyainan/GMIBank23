@@ -5,6 +5,7 @@ import gmibank.pages.US014_DateCreationOfAccountPage;
 import gmibank.utilities.ConfigurationReader;
 import gmibank.utilities.Driver;
 import gmibank.utilities.ZiyaMethods;
+import org.testng.Assert;
 
 public class US014_DateCreationOfAccountStepDef {
 
@@ -47,7 +48,8 @@ US014_DateCreationOfAccountPage US014Page= new US014_DateCreationOfAccountPage()
 
     @And("User fills {string} and {string} fields")
     public void userFillsAndFields(String arg0, String arg1) {
-        Driver.waitAndSendText(US014Page.description,"Agios",4);
+        Driver.waitAndSendText(US014Page.description,ConfigurationReader.getProperty("ZAccountName"));
+        //Driver.waitAndSendText(US014Page.description,"ZChecking Account",4);
         Driver.waitAndSendText(US014Page.balance,"5000",5);
 
     }
@@ -73,4 +75,26 @@ US014_DateCreationOfAccountPage US014Page= new US014_DateCreationOfAccountPage()
      //  ZiyaMethods.JSfindElement(US014Page.createdAccount);
         ZiyaMethods.JSuntillButton();
     }
+
+    @Then("verify if the account is created")
+    public void verifyIfTheAccountIsCreated() {
+        Assert.assertTrue(US014Page.createdAccount.isDisplayed(),"ERROR= You cannot create an account at the previous date");
+        // Burada mantikta bir hata olabilir . Normalde account eraly date de create edilememisi
+        //lazim ama ediyorsa bu bir bug olmali. Burada Assertion nasil olmali ??? Bug olan
+        // otomasyon sonu gecmeli mi? kalmali mi?
+
+    }
+
+    @Then("User click on date picker box and send  {string}")
+    public void userClickOnDatePickerBoxAndSend(String arg0) {
+        Driver.waitAndSendText(US014Page.date,"01/01/20210000",5);
+    }
+
+
+
+//    @Then("verify if the account is created")
+//    public void verifyIfTheAccountIsCreated() {
+//        ZiyaMethods.JSuntillButton();
+//        Assert.assertFalse();
+//    }
 }

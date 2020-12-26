@@ -17,7 +17,13 @@ Feature: Date of Account cretaion can not be earlier than current date
       And User fills "description" and "balance" fields
       Then User click on date picker box and send an "previous_date"
       And user click on save button
-#      Then user scroll dowmn the buttom
-  Then find the created element
+     Then user scroll dowmn the buttom
+     Then verify if the account is created
 
+      @US014_TC002
+      Scenario: Date format should be MM/DD/YYYY  HH/MM
+        Then Click on Manage Accounts
+        Then Click on Create a new Account
+        And User fills "description" and "balance" fields
+        Then User click on date picker box and send  "incorrect_Date_Format"
 

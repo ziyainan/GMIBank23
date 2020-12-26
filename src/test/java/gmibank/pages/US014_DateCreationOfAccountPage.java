@@ -1,5 +1,6 @@
 package gmibank.pages;
 
+import gmibank.utilities.ConfigurationReader;
 import gmibank.utilities.Driver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -49,8 +50,21 @@ public class US014_DateCreationOfAccountPage {
 //    @FindBy(xpath = "//table//tr//td[2]")
 //    public WebElement createdAccount;
 
-      @FindBy(xpath = "//table//tr//td[2][contains(text(),'Z12')]")
-      public WebElement createdAccount;
+//      @FindBy(xpath = "//table//tr//td[2][contains(text(),'Z12')]")
+//      public WebElement createdAccount;
+
+    String aa=ConfigurationReader.getProperty("ZAccountName");
+
+//    @FindBy(xpath = "//table//tr//td[2][contains(text(),+aa+)]")
+//    public WebElement createdAccount;
+
+
+    @FindBy(xpath = "//table//tr//td[2][contains(text(),'ZChecking Account')]")
+    public WebElement createdAccount;
+
+
+
+
 
 
 
