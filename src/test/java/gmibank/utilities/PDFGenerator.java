@@ -134,12 +134,14 @@ public class PDFGenerator {
             for(int i=0;i<list.size();i++ ) {
                 table.addCell(list.get(i).getFirstName());
                 table.addCell(list.get(i).getSsn());
-                table.addCell(list.get(i).getCountry().getName());
+                if(list.get(i).getCountry()!=null)
+                    table.addCell(list.get(i).getCountry().getName());
+                else    table.addCell("No Country");
                 table.addCell(list.get(i).getState());
                 table.addCell(list.get(i).getZipCode());
             }
             document.add(table);
-            document.add(Image.getInstance(logo_path));
+            //document.add(Image.getInstance(logo_path));
             document.close();
             writer.close();
         }
@@ -157,6 +159,7 @@ public class PDFGenerator {
         customer.setSsn("2134555");
         customer.setZipCode("12077");
         customer.setCountry(country);
+
 
         list.add(customer);
 
