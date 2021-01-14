@@ -16,7 +16,7 @@ public class US005_LoginPageInvalid {
 
     @Given("I visit login page")
     public void visitLoginPage() {
-        String url = ConfigurationReader.getProperty("gmibank_login_url");
+        String url = ConfigurationReader.getProperty("login_url");
         Driver.getDriver().get(url);
         Assert.assertEquals("Cannot go to the website.", Driver.getDriver().getCurrentUrl(), url);
     }

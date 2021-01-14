@@ -11,10 +11,7 @@ Feature: Login page should not be accessible with invalid credentials
       | invalid  |
       | whoAmI   |
       | user123  |
-#      | nope     |
-#      | Pretty   |
-#      | 132945   |
-#      | S2945h   |
+
 
 
 

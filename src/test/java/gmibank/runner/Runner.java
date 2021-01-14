@@ -1,4 +1,4 @@
-package gmibank.runners;
+package gmibank.runner;
 
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
@@ -14,9 +14,9 @@ import org.junit.runner.RunWith;
 		},
 		features = "src/test/resources/features",
 		glue = "gmibank/step_defs",
-		tags = "@US022",
+		tags = "@US005_TC001",
 		dryRun = false
 )
-public class AbdulRunner {
+public class Runner {
 
 }

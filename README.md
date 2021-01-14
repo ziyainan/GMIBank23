@@ -1,4 +1,4 @@
-**Project GMIBank - Team23**
+**Project GMIBank - Team26**
 
 Please make sure you update version of the below
 
