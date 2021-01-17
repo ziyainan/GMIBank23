@@ -7,7 +7,9 @@ import org.openqa.selenium.support.PageFactory;
 
 public class US005_LoginPageWithInvalidPage {
 
-    public US005_LoginPageWithInvalidPage() { PageFactory.initElements(Driver.getDriver(),this); }
+    public US005_LoginPageWithInvalidPage() {
+        PageFactory.initElements(Driver.getDriver(),this);
+    }
 
     @FindBy(xpath = "//a[@href='#']")
     public WebElement accountIcon;
