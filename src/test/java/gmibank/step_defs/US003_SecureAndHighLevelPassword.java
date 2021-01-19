@@ -39,7 +39,4 @@ public class US003_SecureAndHighLevelPassword {
     public void validate_level_chart_change_accordingly() {
 
     }
-
-
-
 }
