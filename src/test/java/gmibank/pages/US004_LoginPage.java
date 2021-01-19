@@ -1,15 +1,10 @@
 package gmibank.pages;
 
 import gmibank.utilities.ConfigurationReader;
-import gmibank.utilities.Driver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
-public class US004_LoginPage {
-    public US004_LoginPage(){
-        PageFactory.initElements(Driver.getDriver(),this);
-    }
+public class US004_LoginPage extends BasePage{
 
     @FindBy(id="account-menu")
     public WebElement accountIcon;

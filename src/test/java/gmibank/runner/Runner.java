@@ -12,16 +12,14 @@ import org.junit.runner.RunWith;
 				"pretty",
 				"html:target/default-cucumber-reports",
 				"json:target/cucumber.json",
-				//"html:target/cucumber.html",
+				"html:target/cucumber.html",
 				"junit:target/xml-report/cucumber.xml"
 		},
 		features = "src/test/resources/features",
 		glue = "gmibank/step_defs",
-		tags = "@US004_TC001",
+		tags = "@US003_TC001",
 		dryRun = false
 )
-
-
 
 public class Runner {
 

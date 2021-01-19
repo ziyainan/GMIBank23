@@ -154,17 +154,17 @@ public class Driver {
     }
     public static void waitForPageToLoad(long timeOutInSeconds) {
         ExpectedCondition<Boolean> expectation = new ExpectedCondition<Boolean>() {
-            public Boolean apply(WebDriver driver) {
-                return ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete");
-            }
-        };
-        try {
-            WebDriverWait wait = new WebDriverWait(Driver.getDriver(), timeOutInSeconds);
-            wait.until(expectation);
-        } catch (Exception error) {
-            error.printStackTrace();
+        public Boolean apply(WebDriver driver) {
+            return ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete");
         }
+    };
+        try {
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), timeOutInSeconds);
+        wait.until(expectation);
+    } catch (Exception error) {
+        error.printStackTrace();
     }
+}
 
     public static void executeJScommand(WebElement element, String command) {
         JavascriptExecutor jse = (JavascriptExecutor) Driver.getDriver();

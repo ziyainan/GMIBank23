@@ -5,7 +5,7 @@ Feature: Login page should  be accessible with invalid credentials
     Given Go to login page
     And Click on account Icon
     And Click on Sign in Icon
-    When Enter username and password
+    When User is on the login page
     Then Click on submit Icon
     Then Validate the log in the page
     Then Click on LadyGagaTeamTryCatch

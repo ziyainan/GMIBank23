@@ -9,7 +9,7 @@ import gmibank.utilities.ConfigurationReader;
 import gmibank.utilities.Driver;
 import org.testng.Assert;
 
-public class LoginStepDef {
+public class US004_LoginStepDef {
 
     US004_LoginPage loginPage = new US004_LoginPage();
 
@@ -40,9 +40,11 @@ public class LoginStepDef {
 
     @Then("Validate the log in the page")
     public void validate_the_log_in_the_page() {
+
         String actual = loginPage.myOperations.getText() ;
         String expected = "My Operations" ;
        Assert.assertEquals(actual,expected);
+       Assert.assertEquals(actual,expected,"My Operations");
     }
 
 
