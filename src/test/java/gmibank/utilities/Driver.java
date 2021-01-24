@@ -1,4 +1,6 @@
 package gmibank.utilities;
+
+import gmibank.pages.US004_LoginPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -61,6 +63,63 @@ public class Driver {
             // multiple browser like chrome, firefox, ie etc.)
         }
     }
+    public static void clickWithTimeOut(WebElement element, int timeout) {
+        for (int i = 0; i < timeout; i++) {
+            try {
+                element.click();
+                return;
+            } catch (WebDriverException e) {
+                wait(1);
+            }
+        }
+    }
+
+    public static void loginAll(String string) {
+        US004_LoginPage logInPage = new US004_LoginPage();
+        Driver.getDriver().get(ConfigurationReader.getProperty("login_url"));
+        Driver.clickWithTimeOut(logInPage.accountIcon,4);
+        Driver.clickWithTimeOut(logInPage.signInIcon, 4);
+
+        switch (string) {
+            case "employee":
+                Driver.wait(1);
+                logInPage.usernameBox.sendKeys(ConfigurationReader.getProperty("EmployeeUsername"));
+                Driver.wait(1);
+                logInPage.passwordBox.sendKeys(ConfigurationReader.getProperty("EmployeePassword"));
+                Driver.wait(1);
+                logInPage.submitSignIn.submit();
+                Driver.wait(1);
+                break;
+            case "customer":
+                Driver.wait(1);
+                logInPage.usernameBox.sendKeys(ConfigurationReader.getProperty("CustomerUsername"));
+                Driver.wait(1);
+                logInPage.passwordBox.sendKeys(ConfigurationReader.getProperty("CustomerPassword"));
+                Driver.wait(1);
+                logInPage.submitSignIn.submit();
+                Driver.wait(1);
+                break;
+            case "admin":
+                Driver.wait(1);
+                logInPage.usernameBox.sendKeys(ConfigurationReader.getProperty("AdminUsername"));
+                Driver.wait(1);
+                logInPage.passwordBox.sendKeys(ConfigurationReader.getProperty("AdminPassword"));
+                Driver.wait(1);
+                logInPage.submitSignIn.submit();
+                Driver.wait(1);
+                break;
+            case "user":
+                Driver.wait(1);
+                logInPage.usernameBox.sendKeys(ConfigurationReader.getProperty("UserUsername"));
+                Driver.wait(1);
+                logInPage.passwordBox.sendKeys(ConfigurationReader.getProperty("UserPassword"));
+                Driver.wait(1);
+                logInPage.submitSignIn.submit();
+                Driver.wait(1);
+                break;
+        }
+    }
+
 
     public static void waitAndClick(WebElement element) {
         waitAndClick(element,DEFAULT_TIMEOUT);

@@ -8,8 +8,10 @@ import gmibank.pages.US003_SecurePasswordPage;
 import gmibank.utilities.Driver;
 import org.junit.Assert;
 
-public class US003_SecureAndHighLevelPassword {
+public class US003_US003_SecureAndHighLevelPassword {
      US003_SecurePasswordPage US003_Page = new US003_SecurePasswordPage();
+
+   
 
     @Given("Go to GMIBANK dashboard")
     public void goToGMIBANKDashboard() {
@@ -30,16 +32,34 @@ public class US003_SecureAndHighLevelPassword {
         US003_Page.passwordTextBox.click();
     }
 
-    @When("Type the {string}")
-    public void type_the(String string) {
+
+    @When("Type the TCOne{string}")
+    public void typeTheTCOne(String string) {
+        US003_Page.firstPasswordTextBox.sendKeys(string);
+    }
+
+    @When("Type the TCTwo{string}")
+    public void typeTheTCTwo(String string) {
+        US003_Page.firstPasswordTextBox.sendKeys(string);
+    }
+
+    @When("Type the TCThree{string}")
+    public void typeTheTCThree(String string) {
+        US003_Page.firstPasswordTextBox.sendKeys(string);
+    }
+
+    @When("Type the TCFour{string}")
+    public void typeTheTCFour(String string) {
+        US003_Page.firstPasswordTextBox.sendKeys(string);
+    }
+
+    @When("Type the TCFive{string}")
+    public void typeTheTCFive(String string) {
         US003_Page.firstPasswordTextBox.sendKeys(string);
     }
 
     @Then("Validate level chart change accordingly")
     public void validate_level_chart_change_accordingly() {
-
     }
-
-
 
 }

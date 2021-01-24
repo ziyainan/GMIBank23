@@ -1,6 +1,5 @@
 package gmibank.pages;
 
-import gmibank.utilities.ConfigurationReader;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -13,10 +12,10 @@ public class US004_LoginPage extends BasePage{
     public WebElement signInIcon;
 
     @FindBy(xpath = "//input[@name='username']")
-    private WebElement usernameBox;
+    public WebElement usernameBox;
 
     @FindBy(xpath = "//input[@name='password']")
-    private WebElement passwordBox;
+    public WebElement passwordBox;
     
     @FindBy(xpath = "//button[@type='submit']")
     public WebElement submitSignIn;
@@ -33,12 +32,14 @@ public class US004_LoginPage extends BasePage{
     @FindBy(linkText = "SIGN IN AGAIN")
     public WebElement loggedOut;
 
+    /*
     public void login(){
-        String username = ConfigurationReader.getProperty("username1") ;
+        String username = ConfigurationReader.getProperty("AdminUsername") ;
         String password = ConfigurationReader.getProperty("password1") ;
 
         usernameBox.sendKeys(username);
         passwordBox.sendKeys(password);
-
     }
+
+     */
 }
