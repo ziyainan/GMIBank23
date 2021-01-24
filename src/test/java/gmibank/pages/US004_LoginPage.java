@@ -31,7 +31,7 @@ public class US004_LoginPage extends BasePage{
 
     @FindBy(linkText = "SIGN IN AGAIN")
     public WebElement loggedOut;
-
+     //
     /*
     public void login(){
         String username = ConfigurationReader.getProperty("AdminUsername") ;
