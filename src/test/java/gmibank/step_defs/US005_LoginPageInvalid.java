@@ -23,6 +23,7 @@ public class US005_LoginPageInvalid {
 
     @Given("click on Sign in icon")
     public void clickSignInIcon() {
+
     Driver.waitAndClick(input.accountIcon,5);
     Driver.waitAndClick(input.signInLink,5);
     Assert.assertEquals("Cannot go to login page.", Driver.getDriver().getCurrentUrl(),"https://gmibank.com/login");
@@ -35,6 +36,7 @@ public class US005_LoginPageInvalid {
         Thread.sleep(1000);
            // Assert.assertFalse("UserCheck is visible", input.userCheck.isDisplayed());
             Assert.assertNotNull(input.userName.getText());
+
     }
 
 
