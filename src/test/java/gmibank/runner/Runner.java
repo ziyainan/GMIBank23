@@ -14,7 +14,7 @@ import org.junit.runner.RunWith;
 		},
 		features = "src/test/resources/features",
 		glue = "gmibank/step_defs",
-		tags = "@US_006_SmokeTest",
+		tags = "@s5",
 		dryRun = false
 )
 public class Runner {
