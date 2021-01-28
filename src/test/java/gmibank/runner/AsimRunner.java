@@ -14,8 +14,8 @@ import org.junit.runner.RunWith;
         },
         features = "src/test/resources/features",
         glue = "gmibank/step_defs",
-        //@US008, @Email
-        tags = "@US008",
+        //@US008, @Email ,@Transfer
+        tags = "@Transfer",
         dryRun = false
 )
 public class AsimRunner {

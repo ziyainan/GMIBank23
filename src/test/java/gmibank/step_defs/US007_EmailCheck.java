@@ -73,7 +73,8 @@ public class US007_EmailCheck {
     */
     @Given("user go to the login page")
     public void user_go_to_the_login_page() {
-        Driver.getDriver().get(ConfigurationReader.getProperty("gmibank_login_url"));
+        String url = ConfigurationReader.getProperty("login_url");
+        Driver.getDriver().get(url);
         Driver.waitAndClick(US007_email.accountmenu, 2);
         Driver.waitAndClick(US007_email.loginitem, 2);
     }
