@@ -10,5 +10,5 @@ public class US012_EmpManCustPage {
 
      @FindBy(linkText = "Manage Customers")
      public WebElement manageCustomers;
-
+     //..git add
 }
