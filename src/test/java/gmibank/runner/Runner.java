@@ -17,7 +17,7 @@ import org.junit.runner.RunWith;
 		},
 		features = "src/test/resources/features",
 		glue = "gmibank/step_defs",
-		tags = "@US004_TC001",
+		tags = "@US012",
 		dryRun = false
 )
 
@@ -25,19 +25,3 @@ public class Runner {
 
 }
 
-//import io.cucumber.junit.Cucumber;
-//import io.cucumber.junit.CucumberOptions;
-//import org.junit.runner.RunWith;
-//
-//@RunWith(Cucumber.class)
-//@CucumberOptions(
-//		plugin = {"html:target/cucumber-report.html" ,
-//				"json:target/cucumber.json" ,
-//				"rerun:target/rerun.txt"
-//		},
-//		features = "src/test/resources/features" ,
-//		glue = "com/bitrix24/stepdefinitions",
-//		dryRun = false,
-//		tags = "@login",
-//		publish = true
-//)

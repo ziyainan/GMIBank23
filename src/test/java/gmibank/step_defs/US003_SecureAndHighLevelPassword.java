@@ -8,7 +8,7 @@ import gmibank.pages.US003_SecurePasswordPage;
 import gmibank.utilities.Driver;
 import org.junit.Assert;
 
-public class US003_US003_SecureAndHighLevelPassword {
+public class US003_SecureAndHighLevelPassword {
     US003_SecurePasswordPage US003_Page = new US003_SecurePasswordPage();
 
 

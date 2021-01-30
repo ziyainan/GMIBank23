@@ -240,4 +240,10 @@ public class Driver {
             }
         }
     }
+
+    //Tuncay
+    public static void selectDropdown(WebElement element1, String str){
+        Select select = new Select(element1);
+        select.selectByVisibleText(str);
+    }
 }
