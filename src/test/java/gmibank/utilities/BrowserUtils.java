@@ -16,6 +16,7 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 public class BrowserUtils {
+
     public static void wait(int secs) {
         try {
             Thread.sleep(1000 * secs);
@@ -267,4 +268,5 @@ public class BrowserUtils {
         JavascriptExecutor jse = (JavascriptExecutor) Driver.getDriver();
         jse.executeScript(command);
     }
+
 }
