@@ -1,5 +1,7 @@
 package gmibank.utilities;
 
+import gmibank.pojo.Country;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +20,7 @@ public class TxtUtil {
                 FileNotFoundException e) {
             e.printStackTrace();
         }
+
         BufferedReader br = new BufferedReader(fr);
         String line = "";
         while (true) {
@@ -37,4 +40,16 @@ public class TxtUtil {
         return list;
     }
 
+
+    public static void saveAllCountry(String fileNname, Country[] country) {
+        try {
+
+            BufferedWriter writer = new BufferedWriter(new FileWriter(fileNname, true));
+            for (int i=0 ; i<country.length;i++) {
+                writer.append(country[i].getName() + ",\n");
+            }
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+    }
 }
