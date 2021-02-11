@@ -132,6 +132,10 @@
             <artifactId>junit-jupiter</artifactId>
             <version>5.7.0-M1</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/com.uttampanchasara.pdfgenerator/pdfgenerator -->
+        <!-- https://mvnrepository.com/artifact/io.mosip.kernel/kernel-pdfgenerator-itext -->
+      
+
 
 
 

@@ -1,6 +1,7 @@
 package gmibank.utilities;
 
 import gmibank.pojo.Country;
+import gmibank.pojo.Customer;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -51,5 +52,46 @@ public class TxtUtil {
         } catch (Exception e){
             e.printStackTrace();
         }
+    }
+
+    public static void saveCustomerId(String fileNname, List<Object> list) {
+        try {
+
+            BufferedWriter writer = new BufferedWriter(new FileWriter(fileNname, true));
+            for (int i=0 ; i<list.size();i++)
+                writer.append(list.get(i)+",\n");
+
+                writer.close();
+
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public static List<String> returnCustomerSSNList(String filePath) {
+        List<String> all = new ArrayList<>();
+        try {
+
+
+            BufferedReader br = new BufferedReader(new FileReader(filePath));
+            StringBuilder sb = new StringBuilder();
+            String line = br.readLine();
+            System.out.println("line = " + line);
+
+            int i = 0;
+            while (line != null) {
+                Customer customer = new Customer();
+                customer.setSsn(line.split(",")[0]);
+                sb.append(System.lineSeparator());
+                line = br.readLine();
+
+                System.out.println("i = " + i++);
+
+                all.add(customer.getSsn());
+            }
+        }catch(Exception e) {
+            e.printStackTrace();
+        }
+            return all;
     }
 }

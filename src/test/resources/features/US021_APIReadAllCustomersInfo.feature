@@ -10,7 +10,7 @@
         |url|idJson|nameJson|
         |https://www.gmibank.com/api/tp-countries| name  | France |
 
-
+     @US
     Scenario: User read all country you created
     Given user read all countries and sets response using api end point "https://www.gmibank.com/api/tp-countries"
     Then User deserialization countries data json to pojo
